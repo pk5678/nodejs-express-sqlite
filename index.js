@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const compression = require('compression')
 const helmet = require('helmet')
-const User = require('./User');
+const {User, sequelize} = require('./User');
 
 const port = process.env.PORT || 5007;
 
@@ -18,7 +18,7 @@ app.get("/", async (req, res) => {
 })
 
 app.get("/user", async (req, res) => {
-    const users = await User.findAll();
+    const users = await User.findAll({attributes: ['id', 'userName', 'email']});
     //console.dir(users)
     res.send(users);
 })
@@ -30,9 +30,23 @@ app.post("/user", async (req, res) => {
     res.send(data);
 })
 
+app.get("/search/:txt", async (req, res) => {
+    const searchText = req.params.txt;
+    //console.dir(req.body);
+    const data = await User.findAll({ attributes: ['id', 'userName', 'email'],
+        where: sequelize.or( { 
+            userName: searchText 
+        },{
+            email: searchText 
+        })
+      });
+    //console.dir(data);
+    res.send(data);
+})
+
 app.get("/user/:id", async (req, res) => {
     const requestedId = req.params.id;
-    const user = await User.findOne({
+    const user = await User.findOne({ attributes: ['id', 'userName', 'email'],
         where: {
             id: requestedId
         }

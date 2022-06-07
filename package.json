@@ -1,13 +1,13 @@
 {
   "name": "nodejs-express-sqlite-starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "User Information by Pramod Kumar",
   "main": "index.js",
   "scripts": {
     "test": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["Node JS", "SQLite", "Express", "CORS"],
+  "author": "Pramod Kumar",
   "license": "ISC",
   "dependencies": {
     "compression": "^1.7.4",
