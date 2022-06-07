@@ -1,0 +1,60 @@
+POST http://localhost:5007/user
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userName" : "kpramod",
+  "email":  "kpramod@dummymail.com",
+  "password": "password"
+}
+
+###
+POST http://localhost:5007/user
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userName" : "guest",
+  "email":  "guest@dummymail.com",
+  "password": "password"
+}
+
+###
+
+GET http://localhost:5007/user/1
+Content-Type: application/json
+Accept: application/json
+
+###
+
+PUT http://localhost:5007/user/2
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userName" : "user-1",
+  "email":  "user-1@dummymail.com",
+  "password": "password"
+}
+
+###
+PUT http://localhost:5007/user/2
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userName" : "user"
+}
+
+###
+DELETE http://localhost:5007/user/2
+Content-Type: application/json
+Accept: application/json
+
+###
+
+GET http://localhost:5007/user
+Content-Type: application/json
+Accept: application/json
+
+###
